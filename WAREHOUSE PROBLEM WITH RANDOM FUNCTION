@@ -85,7 +85,7 @@ cout<<"Total quantity  in one month "<<total_month_quantity[i]<<endl;
      for(int i=0;i<5;i++)
      {
          
-            if((quantitysold[i][input-1])>ans3) 
+            if((sales[i][input-1])>ans3) 
             {
                 ans3=sales[i][input-1];
                 index3=i;
