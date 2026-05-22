@@ -36,10 +36,12 @@ cout<<"Total quantity  in one month "<<total_month_quantity[i]<<endl;
      // Maximum sale of EAch warehouse
      long long int ans=INT_MIN;
      long long int ans1=INT_MIN;
-    long  int index[5]={0};
-    long long index1[5]={0};
+     long  int index[5]={0};
+     long long index1[5]={0};
      for(int i=0;i<5;i++)
      {
+          long  int index[5]={0};
+          long long index1[5]={0};
          cout<<"\t\t\t\tFor Warehouse "<<i+1<<endl;;
          for(int j=0;j<30;j++)
          {
@@ -65,8 +67,11 @@ cout<<"Total quantity  in one month "<<total_month_quantity[i]<<endl;
     long long  int index2=0;
      for(int i=0;i<5;i++)
      {
+         if(index1[i]>ans2)
+         {
          ans2=index1[i];
          index2=i;
+         }
      }
      cout<<"Maximum Sale is of warehouse "<<index2+1<<endl;
      cout<<endl;
@@ -82,7 +87,7 @@ cout<<"Total quantity  in one month "<<total_month_quantity[i]<<endl;
          
             if((quantitysold[i][input-1])>ans3) 
             {
-                ans3=quantitysold[i][input-1];
+                ans3=sales[i][input-1];
                 index3=i;
             }
              
