@@ -1,0 +1,92 @@
+
+#include <iostream>
+#include <climits>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+int main() {
+   long long int sales[5][30]={0};
+   long long int quantitysold[5][30]={0};
+     // Data from Manager of warehouse
+     for(int i=0;i<5;i++)
+     {
+         for(int j=0;j<30;j++)
+         {
+        
+             quantitysold[i][j]=rand() %10;
+             
+             sales[i][j]=rand() %10;
+         }
+     }
+     long long int total_month_sale[5]={0};
+     long long int total_month_quantity[5]={0};
+      for(int i=0;i<5;i++)
+     {
+         cout<<"\t\t\t\t\tFOR WAREHOUSE "<<i+1<<endl;
+         for(int j=0;j<30;j++)
+         {
+         total_month_sale[i]=total_month_sale[i]+sales[i][j];
+         total_month_quantity[i]=total_month_quantity[i]+quantitysold[i][j];
+         
+         }
+cout<<"Total sales in one month "<<total_month_sale[i]<<endl;
+cout<<"Total quantity  in one month "<<total_month_quantity[i]<<endl;
+     cout<<endl;
+     }
+     // Maximum sale of EAch warehouse
+     long long int ans=INT_MIN;
+     long long int ans1=INT_MIN;
+    long  int index[5]={0};
+    long long index1[5]={0};
+     for(int i=0;i<5;i++)
+     {
+         cout<<"\t\t\t\tFor Warehouse "<<i+1<<endl;;
+         for(int j=0;j<30;j++)
+         {
+            if(quantitysold[i][j]>ans) 
+            {
+                ans=quantitysold[i][j];
+                index[i]=j;
+            }
+              if(sales[i][j]>ans1) 
+            {
+                ans1=sales[i][j];
+                index1[i]=j;
+            }
+         }
+         cout<<"Maximum  sold quantity of warehouse "<<i+1<<" is on DAte "<<index[i]+1<<endl;
+          cout<<"Maximum sale amount of warehouse "<<i+1<<" is on date "<<index1[i]+1<<endl;
+     cout<<endl;
+    
+     }
+     //to find which warehouse had maximum quantity sold 
+     
+     long long int ans2=INT_MIN;
+    long long  int index2=0;
+     for(int i=0;i<5;i++)
+     {
+         ans2=index1[i];
+         index2=i;
+     }
+     cout<<"Maximum Sale is of warehouse "<<index2+1<<endl;
+     cout<<endl;
+
+     
+     //FOR QUERY TO FIND WHICH WAREHOUSE HAD MAXMIMUM SALE ON SPECIFIC DATE
+     int input;
+     long long int ans3=INT_MIN;
+     int index3=0;
+    input=rand()%30;
+     for(int i=0;i<5;i++)
+     {
+         
+            if((quantitysold[i][input-1])>ans3) 
+            {
+                ans3=quantitysold[i][input-1];
+                index3=i;
+            }
+             
+     }
+     cout<<"Maximum sale on date "<<input+1<<" is "<<ans3<<" of warehouse "<<index3+1;
+    return 0;
+}
