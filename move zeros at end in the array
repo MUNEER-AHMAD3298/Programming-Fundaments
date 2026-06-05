@@ -1,0 +1,25 @@
+
+#include <iostream>
+using namespace std;
+int main() {
+    int temp=0,end=4;
+    int arr[5]={1,1,0,3,0};
+    int copy[5];
+    int j=0;
+    for(int i=0;i<5;i++){
+        if(arr[i]!=0)
+        {
+          copy[j]=arr[i];
+          j++;
+        }
+    }
+    for(int i=j;i<5;i++){
+        copy[i]=0;
+    }
+     for(int i=0;i<5;i++){
+       cout<<copy[i]<<" ";
+    }
+    
+
+    return 0;
+}
